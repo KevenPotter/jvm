@@ -1,5 +1,6 @@
 /**
  * 28.线程上下文类加载器本质剖析与实例
+ * 29.ServiceLoader在SPI中的重要作用分析
  * 线程上下文类加载器的一般使用模式(获取 - 使用 - 还原)
  * ClassLoader classLoader = Thread.currentThread().getContextClassLoader()
  * try {
@@ -18,8 +19,23 @@
  */
 package com.kevenpotter.jvm.classloader;
 
+import java.sql.Driver;
+import java.util.Iterator;
+import java.util.ServiceLoader;
+
 public class MyTest26 {
 
     public static void main(String[] args) {
+
+        // Thread.currentThread().setContextClassLoader(MyTest26.class.getClassLoader().getParent());
+
+        ServiceLoader<Driver> loader = ServiceLoader.load(Driver.class);
+        Iterator<Driver> iterator = loader.iterator();
+        while (iterator.hasNext()) {
+            Driver driver = iterator.next();
+            System.out.println("driver: " + driver.getClass() + ", loader: " + driver.getClass().getClassLoader());
+        }
+        System.out.println("当前线程上下文类加载器: " + Thread.currentThread().getContextClassLoader());
+        System.out.println("ServiceLoader类加载器: " + ServiceLoader.class.getClassLoader());
     }
 }
