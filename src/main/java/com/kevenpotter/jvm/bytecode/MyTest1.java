@@ -111,6 +111,16 @@ package com.kevenpotter.jvm.bytecode;
  * u2   attribute_count;
  * attribute_info attributes[attributes_count];
  * }
+ * attribute_length:表示attribute所包含的字节数,不包含attribute_name_index和attribute_length字段;
+ * max_stack:表示这个方法运行的任何时刻所能达到的操作数栈的最大深度;
+ * max_locals:表示方法执行期间创建的局部变量的数目,包含用来表示传入的参数的局部变量;
+ * code_length:表示该方法所包含的字节码的字节数以及具体的指令码;具体字节码即是该方法被调用时,虚拟机所执行的字节码;
+ * exception_table:这里存放的是处理异常的信息.每个exception_table表项由start_pc,end_pc,handler_pc,catch_type组成
+ * start_pc,end_pc:表示在code数组中的从start_pc到end_pc处(包含start_pc,不包含end_pc)的指令抛出的异常会由这个表项来处理;
+ * handler_pc:表示处理异常的代码的开始处;
+ * catch_type:表示会被处理的异常类型,它指向常量池里的一个异常类.当catch_type为0时,表示处理所有的异常.
+ * 附加属性:
+ * LineNumberTable:这个属性用来表示code数组中的字节码和Java代码行数之间的关系.这个属性可以用来在调试的时候定位代码执行的行数.
  */
 public class MyTest1 {
 
