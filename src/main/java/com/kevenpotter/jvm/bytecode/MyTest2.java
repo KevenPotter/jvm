@@ -126,15 +126,21 @@ package com.kevenpotter.jvm.bytecode;
  * 44.Java字节码方法表与属性表详解
  * 45.Java字节码整体分析与总结
  */
-public class MyTest1 {
+public class MyTest2 {
 
-    private int a = 1;
+    String str = "welcome";
 
-    public int getA() {
-        return a;
+    private int x = 5;
+
+    public static Integer in = 10;
+
+    public void setX(int x) {
+        this.x = x;
     }
 
-    public void setA(int a) {
-        this.a = a;
+    public static void main(String[] args) {
+        MyTest2 myTest2 = new MyTest2();
+        myTest2.setX(8);
+        in = 20;
     }
 }
