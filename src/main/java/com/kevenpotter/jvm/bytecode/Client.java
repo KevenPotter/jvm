@@ -15,5 +15,6 @@ public class Client {
 
         Subject subject = (Subject) Proxy.newProxyInstance(cls.getClassLoader(), cls.getInterfaces(), ds);
         subject.request();
+        System.out.println(subject.getClass());
     }
 }
