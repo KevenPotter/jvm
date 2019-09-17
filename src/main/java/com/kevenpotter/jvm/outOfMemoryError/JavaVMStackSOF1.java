@@ -6,7 +6,7 @@ package com.kevenpotter.jvm.outOfMemoryError;
  * 1.如果线程请求的栈深度大于虚拟机所允许的最大深度,将抛出StackOverflowError异常;
  * 2.如果虚拟机在扩展栈时无法申请到足够的内存空间,则抛出OutOfMemoryError异常
  */
-public class JavaVMStackSOF {
+public class JavaVMStackSOF1 {
 
     private int stackLength = 1;
 
@@ -25,7 +25,7 @@ public class JavaVMStackSOF {
      * ......后续异常堆栈信息省略
      */
     public static void main(String[] args) {
-        JavaVMStackSOF oom = new JavaVMStackSOF();
+        JavaVMStackSOF1 oom = new JavaVMStackSOF1();
         try {
             oom.stackLeak();
         } catch (Throwable e) {
